@@ -1,4 +1,4 @@
-# HelloPlugin
+# GiveMeSetuPlugin
 
 <!--
 ## 插件开发者详阅
@@ -33,10 +33,16 @@
 配置完成 [QChatGPT](https://github.com/RockChinQ/QChatGPT) 主程序后使用管理员账号向机器人发送命令即可安装：
 
 ```
-!plugin get <插件发布仓库地址>
+!plugin get https://github.com/Hanschase/GiveMeSetuPlugin
 ```
 或查看详细的[插件安装说明](https://github.com/RockChinQ/QChatGPT/wiki/5-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8)
 
 ## 使用
+1.需要在napcat里新增端口为3000的http server(点击右上角新增) <br>
+![image](https://github.com/user-attachments/assets/0a5e68b4-ec3e-416c-96e9-da5f2a94b007) <br>
+2.搜图指令： 色图 <tag>(不需要感叹号，tag也可以不用加，注意色图和tag间有个空格)<br>
+3.效果展示：<br>
+![image](https://github.com/user-attachments/assets/6952b2e1-c022-4ce0-9eaa-d1a1604cfe9c)
+
 
 <!-- 插件开发者自行填写插件使用说明 -->
