@@ -37,27 +37,6 @@ async def get_image(keyword: str, r18_flag: int = 0):
     img_url = img["data"][0]["urls"]["regular"]
     try:
         await download_image(img_url)
-        return [pid,title,author]
+        return [pid,title,author, img_url]
     except Exception as e:
         raise e
-
-async def main():
-    msg = "setu 公主连接".strip()
-    r18_flag = 0
-    if re.search(r'setu|涩图|色图', msg, re.IGNORECASE):
-        msg = msg.split(" ")
-        keyword = msg[1]
-        if 'r' in msg[0] or 'R' in msg[0]:
-            r18_flag = 1
-        try:
-            img_info = await get_image(keyword, r18_flag)
-        except Exception as e:
-            print(e)
-            return
-        img_info = await get_image(keyword, r18_flag)
-        print(msg)
-        print(keyword, r18_flag)
-        print(img_info)
-if __name__ == "__main__":
-    asyncio.run(main())
-    pass
