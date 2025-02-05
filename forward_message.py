@@ -7,7 +7,7 @@ class forward_message():
         self.url = f"http://{host}:{port}"
 
     async def send(self, group_id:str, img_info:list):
-        image = self.get_media_path("temp.jpg")
+        image = self.get_media_path(img_info[3])
         message_data = {
             "group_id": group_id,
             "user_id": "1900487324",
