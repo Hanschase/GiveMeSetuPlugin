@@ -7,7 +7,7 @@ import re
 from plugins.GiveMeSetuPlugin.forward_message import forward_message
 
 # 注册插件
-@register(name="GiveMeSetuPlugin", description="功能正如其名，让她给，她不得不给！", version="0.1", author="Hanschase")
+@register(name="GiveMeSetuPlugin", description="功能正如其名，让她给，她不得不给！", version="0.2", author="Hanschase")
 class MyPlugin(BasePlugin):
 
     # 插件加载时触发
