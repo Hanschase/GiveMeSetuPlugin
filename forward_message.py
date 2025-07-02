@@ -1,22 +1,26 @@
 import json
 import aiohttp
 import os
+from .config import Config
 
 class forward_message():
-    def __init__(self, host:str, port: int):
-        self.url = f"http://{host}:{port}"
+    def __init__(self, host:str = None, port: int = None):
+        self.config = Config()
+        self.host = host or self.config.NAPCAT_HOST
+        self.port = port or self.config.NAPCAT_PORT
+        self.url = f"http://{self.host}:{self.port}"
 
     async def send(self, group_id:str, img_info:list):
-        image = self.get_media_path(img_info[3])
+        image = self.get_media_path(self.config.TEMP_IMAGE_NAME)
         message_data = {
             "group_id": group_id,
-            "user_id": "1900487324",
+            "user_id": self.config.FORWARD_USER_ID,
             "messages": [
                 {
                     "type": "node",
                     "data": {
-                        "user_id": "3870128501",
-                        "nickname": "BOT",
+                        "user_id": self.config.BOT_QQ,
+                        "nickname": self.config.BOT_NICKNAME,
                         "content": [
                             {
                                 "type": "text",
@@ -39,8 +43,8 @@ class forward_message():
                     "text": f"pid:{img_info[0]}"
                 }
             ],
-            "prompt": "冲就完事儿了",
-            "summary": "一天就知道冲冲冲",
+            "prompt": self.config.CARD_MESSAGE_CONFIG["prompt"],
+            "summary": self.config.CARD_MESSAGE_CONFIG["summary"],
             "source": img_info[1]
         }
         headers = {
